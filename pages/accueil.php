@@ -1,7 +1,11 @@
 <?php
-$cat = new CategorieDB($cnx);
-$liste = $cat->getAllCategories();
-$nbr_cat = count($liste);
+$voiture = new VoitureDB($cnx);
+
+if (isset($_GET['marque'])) {
+    $liste = $voiture->getCarsByBrand($_GET['marque']);
+} else {
+    $liste = $voiture->getAllCars();
+}
 
 ?>
 
@@ -10,30 +14,29 @@ $nbr_cat = count($liste);
     <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             <?php
-            for($i=0; $i < $nbr_cat; $i++){
-            ?>
-            <div class="col">
-                <div class="card shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                    <div class="card-body">
-                        <p class="card-text">
-                            <?php
-                            print $liste[$i]->nom_categorie;
-                            ?>
-                        </p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <a href="index_.php?id_categorie=<?php print $liste[$i]->id_categorie;?>&page=produits_categorie.php" type="button" class="btn btn-sm btn-outline-secondary" >View</a>
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                            </div>
-                      </div>
+            foreach($liste as $voiture){
+                ?>
+                <div class="col">
+                    <div class="card shadow-sm" style="padding: 10px;">
+                        <img  src="./admin/public/images/voiture<?php echo htmlspecialchars($voiture['id_voiture'] ?? ''); ?>.jpg" alt="Image de la voiture"  >
+                        <div class="card-body">
+                            <p class="card-text">
+                                Marque: <?php print htmlspecialchars($voiture['marque'] ?? ''); ?><br>
+                                Modèle: <?php print htmlspecialchars($voiture['modele'] ?? ''); ?><br>
+                                Année: <?php print htmlspecialchars($voiture['annee'] ?? ''); ?><br>
+                                Couleur: <?php print htmlspecialchars($voiture['couleur'] ?? ''); ?><br>
+                                Prix: <?php print htmlspecialchars($voiture['prix'] ?? ''); ?> €<br>
+                                Kilométrage: <?php print htmlspecialchars($voiture['kilometrage'] ?? ''); ?><br>
+                                Carburant: <?php print htmlspecialchars($voiture['carburant'] ?? ''); ?><br>
+                                Type de boîte: <?php print htmlspecialchars($voiture['type_boite'] ?? ''); ?>
+                            </p>
+                        </div>
                     </div>
-
                 </div>
-            </div>
-            <?php
+                <?php
             }
             ?>
         </div>
     </div>
 </div>
+
