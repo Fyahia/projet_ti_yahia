@@ -31,7 +31,7 @@ require 'C:\laragon\www\projet_ti_yahia\admin\src\php\utils\verifier_connexion.p
         <?php
         //si aucune variable de session 'page'
         if (!isset($_SESSION['page'])) {
-            $_SESSION['page'] = './pages/accueil.php';
+            $_SESSION['page'] = './pages/accueil_admin.php';
         }
         if (isset($_GET['page'])) {
             $_SESSION['page'] = 'pages/'.$_GET['page'];

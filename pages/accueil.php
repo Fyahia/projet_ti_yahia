@@ -19,6 +19,7 @@ if (isset($_GET['marque'])) {
                 <div class="col">
                     <div class="card shadow-sm" style="padding: 10px;">
                         <img  src="./admin/public/images/voiture<?php echo htmlspecialchars($voiture['id_voiture'] ?? ''); ?>.jpg" alt="Image de la voiture"  >
+
                         <div class="card-body">
                             <p class="card-text">
                                 Marque: <?php print htmlspecialchars($voiture['marque'] ?? ''); ?><br>

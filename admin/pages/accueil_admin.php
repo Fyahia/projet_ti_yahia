@@ -1,8 +1,10 @@
 <?php
-//toujours veriiier si on est connecté
-require './src/php/utils/verifier_connexion.php';
+// Toujours vérifier si on est connecté en tant qu'administrateur
+if (!isset($_SESSION['admin']) || $_SESSION['admin'] != 1) {
+    header('Location: index_.php?page=login.php');
+    exit;
+}
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>

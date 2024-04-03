@@ -11,23 +11,26 @@ class AdminDB extends Admin
         $this->_bd = $cnx;
     }
 
-    public function getAdmin($login,$password)
+    public function getAdmin($login, $password)
     {
-        $query = "select verifier_admin(:login,:password) as retour"; //retour pour 1 ou 0 retourné
         try {
-            $this->_bd->beginTransaction();
-            $resultset = $this->_bd->prepare($query);
-            $resultset->bindValue(':login',$login);
-            $resultset->bindValue(':password',$password);
-            $resultset->execute();
-            $retour = $resultset->fetchColumn(0);
-            return $retour;
-            $this->_bd->commit();
-        } catch (PDOException $e) {
-            $this->_bd->rollback();
-            print "Echec de la requête " . $e->getMessage();
-        }
+            $query = "SELECT * FROM admin WHERE login = :login AND password = :password";
+            $_resultset = $this->_bd->prepare($query);
+            $_resultset->bindValue(':login', $login);
+            $_resultset->bindValue(':password', $password);
+            $_resultset->execute();
+            $retour = $_resultset->fetchAll();
 
+            // Vérifie si des résultats ont été trouvés
+            if (!empty($retour)) {
+                $_array[] = new Admin($retour); // Crée un objet Admin à partir des données récupérées
+                return $_array; // Renvoie un tableau contenant l'objet Admin
+            } else {
+                return null; // Renvoie null si aucun résultat n'a été trouvé
+            }
+        } catch (PDOException $e) {
+            print("Erreur : " . $e->getMessage()); // Affiche une erreur en cas d'exception PDO
+        }
     }
 
 
