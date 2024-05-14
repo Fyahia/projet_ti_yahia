@@ -5,18 +5,18 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] != 1) {
     exit;
 }
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Accueil Admin</title>
-</head>
-<body>
-<h1>Bienvenue, Administrateur!</h1>
-<p>Voici quelques liens utiles:</p>
-<ul>
-    <li><a href="gestion_utilisateurs.php">Gestion des utilisateurs</a></li>
-    <li><a href="gestion_produits.php">Gestion des produits</a></li>
-    <li><a href="logout.php">Déconnexion</a></li>
-</ul>
-</body>
-</html>
+<!-- JS de Bootstrap -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- CSS de Bootstrap -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container">
+    <h1 class="my-4">Bienvenue, Administrateur!</h1>
+    <p>Voici quelques liens utiles:</p>
+    <ul class="list-group">
+        <li class="list-group-item"><a href="index_admin.php?page=gestion_voiture.php">gestion  voiture</a></li>
+        <li class="list-group-item"><a href="index_admin.php?page=ajout_vente.php">Ajouter une vente </a></li>
+        <li class="list-group-item"><a href="index_admin.php?page=disconnect.php">Déconnexion</a></li>
+    </ul>
+</div>
+

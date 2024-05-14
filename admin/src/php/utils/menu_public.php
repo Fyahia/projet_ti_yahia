@@ -4,21 +4,21 @@ require './admin/src/php/db/dbPgConnect.php';
 
 
 // Récupérez toutes les marques de la base de données
-$stmt = $cnx->prepare("SELECT * FROM marque");
+$stmt = $cnx->prepare("SELECT marque FROM voiture");
 $stmt->execute();
 $marques = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <!-- Ajout d'un nom de page -->
-        <a class="navbar-brand" href="#">TransakAuto</a>
+        <a class="navbar-brand" href="index_.php?page=accueil.php">TransakAuto</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index_.php?page=accueil.php">Nos Voitures</a>
+                    <a class="nav-link active" aria-current="page" href="index_.php?page=nos_voitures.php">Nos Voitures</a>
                 </li>
                 <!-- Ajout d'autres options intéressantes -->
                 <li class="nav-item">

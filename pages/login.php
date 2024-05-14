@@ -10,6 +10,7 @@ if (isset($_POST['submit_login'])) { //name du submit
         ////rediriger vers dossier admin
         ?>
         <meta http-equiv="refresh" content="0;URL=admin/index_admin.php?page=accueil_admin.php">
+
         <?php
 
     } else {

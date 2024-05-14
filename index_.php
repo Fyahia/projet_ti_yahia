@@ -10,6 +10,7 @@ require './admin/src/php/utils/liste_includes.php';
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./admin/public/css/style.css" type="text/css">
     <link rel="stylesheet" href="./admin/public/css/custom.css" type="text/css">
+
 </head>
 <body>
 <div class="container">
