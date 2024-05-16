@@ -49,10 +49,7 @@ if (isset($_GET['id'])) {
                     <input type="text" class="form-control" id="type_boite" name="type_boite"
                            value="<?= $voiture[0]['type_boite'] ?? ''; ?>">
                 </div>
-                <div class="mb-3">
-                    <label for="image">Image de la voiture:</label>
-                    <input type="file" id="image" name="image" value="<?= $voiture[0]['image'] ?? ''; ?>">
-                </div>
+
                 <input type="hidden" name="id_voiture" value="<?= $voiture[0]['id_voiture'] ?? ''; ?>" id="id_voiture">
                 <button type="submit" id="texte_bouton_modif" class="btn btn-primary">Modifier</button>
                 <button type="reset" id="reset" class="btn btn-primary">Annuler</button>

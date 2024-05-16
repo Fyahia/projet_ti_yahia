@@ -7,10 +7,9 @@ require '../classes/VoitureDB.class.php';
 try {
     $cnx = Connexion::getInstance($dsn, $user, $password);
 
-
-    if(isset($_GET['id_voiture'], $_GET['marque'], $_GET['modele'], $_GET['annee'], $_GET['couleur'], $_GET['prix'], $_GET['kilometrage'], $_GET['carburant'], $_GET['type_boite'])) {
+    if (isset($_GET['id_voiture'], $_GET['marque'], $_GET['modele'], $_GET['annee'], $_GET['couleur'], $_GET['prix'], $_GET['kilometrage'], $_GET['carburant'], $_GET['type_boite'])) {
         $voiture = new VoitureDB($cnx);
-        //METHODE DE MISE A JOUR SPECIFIQUE
+        // METHODE DE MISE A JOUR SPECIFIQUE
         $data[] = $voiture->updateVoiture($_GET['id_voiture'], $_GET['marque'], $_GET['modele'], $_GET['annee'], $_GET['couleur'], $_GET['prix'], $_GET['kilometrage'], $_GET['carburant'], $_GET['type_boite']);
         print json_encode($data);
     } else {

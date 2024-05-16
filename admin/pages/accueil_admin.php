@@ -15,7 +15,7 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] != 1) {
     <p>Voici quelques liens utiles:</p>
     <ul class="list-group">
         <li class="list-group-item"><a href="index_admin.php?page=gestion_voiture.php">gestion  voiture</a></li>
-        <li class="list-group-item"><a href="index_admin.php?page=ajout_vente.php">Ajouter une vente </a></li>
+        <li class="list-group-item"><a href="index_admin.php?page=gestion_vente.php">Gestion vente </a></li>
         <li class="list-group-item"><a href="index_admin.php?page=disconnect.php">Déconnexion</a></li>
     </ul>
 </div>
