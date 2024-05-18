@@ -17,9 +17,7 @@ $marques = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index_.php?page=nos_voitures.php">Nos Voitures</a>
-                </li>
+
                 <!-- Ajout d'autres options intéressantes -->
                 <li class="nav-item">
                     <a class="nav-link" href="index_.php?page=apropos.php">À propos</a>
@@ -34,16 +32,7 @@ $marques = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <a class="nav-link" href="index_.php?page=login.php">Se connecter</a>
                 </li>
             </ul>
-            <form class="d-flex" method="get" action="index_.php?page=accueil.php">
-                <select class="form-control me-2" name="marque">
-                    <?php foreach ($marques as $marque): ?>
-                        <option value="<?php echo htmlspecialchars($marque['marque']); ?>">
-                            <?php echo htmlspecialchars($marque['marque']); ?>
-                        </option>
-                    <?php endforeach; ?>
-                </select>
-                <button class="btn btn-outline-success" type="submit">Recherche</button>
-            </form>
+
         </div>
     </div>
 </nav>
