@@ -19,7 +19,7 @@ if ($nbr == 0) {
     <table class="table table-striped">
         <thead>
         <tr>
-            <th scope="col">Id Commande</th>
+
             <th scope="col">Montant</th>
             <th scope="col">Détails Voiture</th>
             <th scope="col">Détails Client</th>
@@ -32,7 +32,7 @@ if ($nbr == 0) {
             $client = $clients->getClientById($liste[$i]['id_client']);
             ?>
             <tr>
-                <th><?= $liste[$i]['id_commande']; ?></th>
+
                 <td><?= $liste[$i]['montant']; ?></td>
                 <td><?= $voiture['marque'] . ' ' . $voiture['modele']; ?></td> <!-- Affiche la marque et le modèle de la voiture -->
                 <td><?= $client['nom'] . ' ' . $client['prenom']; ?></td> <!-- Affiche le nom et le prénom du client -->
@@ -49,14 +49,14 @@ if ($nbr == 0) {
 <h2>Ajout d'une commande</h2>
 
 <div class="container">
-    <form id="form_ajout" method="post" action="ajout_commande.php">
+    <form id="form_ajout" method="get" action="">
         <div class="mb-3">
             <label for="id_client" class="form-label">Client</label>
             <select class="form-control" id="id_client" name="id_client" required>
                 <?php
-                $allClients = $clients->getAllClients();
-                foreach ($allClients as $client) {
-                    echo "<option value='{$client['id_client']}'>{$client['nom']} {$client['prenom']}</option>";
+                $liste_clients = $clients->getAllClients();
+                foreach ($liste_clients as $client) {
+                    echo "<option value='" . htmlspecialchars($client['id_client']) . "'>" . htmlspecialchars($client['nom']) . " " . htmlspecialchars($client['prenom']) . "</option>";
                 }
                 ?>
             </select>
@@ -65,9 +65,9 @@ if ($nbr == 0) {
             <label for="id_voiture" class="form-label">Voiture</label>
             <select class="form-control" id="id_voiture" name="id_voiture" required>
                 <?php
-                $allCars = $voitures->getAllCars();
-                foreach ($allCars as $car) {
-                    echo "<option value='{$car['id_voiture']}'>{$car['marque']} {$car['modele']}</option>";
+                $liste_voitures = $voitures->getAllCars();
+                foreach ($liste_voitures as $voiture) {
+                    echo "<option value='" . htmlspecialchars($voiture['id_voiture']) . "'>" . htmlspecialchars($voiture['marque']) . " " . htmlspecialchars($voiture['modele']) . "</option>";
                 }
                 ?>
             </select>
@@ -76,7 +76,7 @@ if ($nbr == 0) {
             <label for="montant" class="form-label">Montant</label>
             <input type="number" step="0.01" class="form-control" id="montant" name="montant" required>
         </div>
-        <button type="submit" id="texte_bouton_submit" class="btn btn-primary">Ajouter</button>
+        <button type="submit" id="texte_bouton_submit_com" class="btn btn-primary">Ajouter</button>
         <button class="btn btn-secondary" type="reset" id="reset">Annuler</button>
     </form>
 </div>

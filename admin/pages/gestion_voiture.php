@@ -1,7 +1,7 @@
 <h2>Gestion des voitures</h2>
-<a href="index_admin.php?page=ajouter_voiture.php">Nouvelle voiture</a><br>
-
-
+<a href="index_admin.php?page=ajouter_voiture.php" class="btn btn-primary mb-3">
+    <i class="fas fa-plus"></i> Nouvelle voiture
+</a>
 <?php
 
 //récupération des voitures et affichage dans table bootstrap

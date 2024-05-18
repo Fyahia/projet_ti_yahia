@@ -17,7 +17,7 @@
             </ul>
             <!-- Ajout d'un bouton pour retourner à l'accueil -->
             <div class="d-flex">
-                <a class="btn btn-primary" href="index_.php?page=accueil_admin.php">Retour à l'accueil</a>
+                <a class="btn btn-primary" href="index_admin.php?page=accueil_admin.php">Retour à l'accueil</a>
             </div>
         </div>
     </div>

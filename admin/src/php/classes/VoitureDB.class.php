@@ -32,21 +32,23 @@ class VoitureDB
         return $stmt->fetch(PDO::FETCH_ASSOC); // Utilisez fetch() au lieu de fetchAll()
     }
 
-    public function updateVoiture($id_voiture, $marque, $modele, $annee, $couleur, $prix, $kilometrage, $carburant, $type_boite)
+    public function updateVoiture($id_voiture, $marque, $modele, $annee, $couleur, $prix, $kilometrage, $carburant, $type_boite, $image)
     {
         try {
-            $query = "UPDATE voiture SET marque = :marque, modele = :modele, annee = :annee, couleur = :couleur, prix = :prix, kilometrage = :kilometrage, carburant = :carburant, type_boite = :type_boite WHERE id_voiture = :id_voiture";
+            $query = "UPDATE voiture SET marque = :marque, modele = :modele, annee = :annee, couleur = :couleur, prix = :prix, kilometrage = :kilometrage, carburant = :carburant, type_boite = :type_boite, image = :image WHERE id_voiture = :id_voiture";
             $res = $this->_db->prepare($query);
 
             $res->bindValue(':marque', $marque);
             $res->bindValue(':modele', $modele);
-            $res->bindValue(':annee', $annee);
+            $res->bindValue(':annee', $annee, PDO::PARAM_INT);
             $res->bindValue(':couleur', $couleur);
-            $res->bindValue(':prix', $prix);
-            $res->bindValue(':kilometrage', $kilometrage);
+            $res->bindValue(':prix', $prix, PDO::PARAM_STR); // Utiliser PDO::PARAM_STR pour les nombres flottants
+            $res->bindValue(':kilometrage', $kilometrage, PDO::PARAM_INT);
             $res->bindValue(':carburant', $carburant);
             $res->bindValue(':type_boite', $type_boite);
-            $res->bindValue(':id_voiture', $id_voiture);
+            $res->bindValue(':image', $image);
+            $res->bindValue(':id_voiture', $id_voiture, PDO::PARAM_INT);
+
             $res->execute();
 
             echo "Voiture modifiée avec succès.";
@@ -55,6 +57,8 @@ class VoitureDB
             echo "Erreur lors de la modification de la voiture.";
         }
     }
+
+
 
     public function ajout_voiture($marque, $modele, $annee, $couleur, $prix, $kilometrage, $carburant, $type_boite, $image)
     {
