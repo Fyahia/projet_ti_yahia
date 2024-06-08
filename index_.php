@@ -42,6 +42,9 @@ require './admin/src/php/utils/liste_includes.php';
         } else {
             include './pages/page404.php';
         }
+        if (file_exists('./admin/src/php/utils/footer.php')) {
+            include './admin/src/php/utils/footer.php';
+        }
         ?>
     </div>
     <footer id="footer">&nbsp;</footer>

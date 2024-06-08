@@ -23,12 +23,6 @@ $marques = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <a class="nav-link" href="index_.php?page=apropos.php">À propos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index_.php?page=service.php">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index_.php?page=contact.php">Contact</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="index_.php?page=login.php">Se connecter</a>
                 </li>
             </ul>

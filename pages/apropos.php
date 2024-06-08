@@ -1,6 +1,4 @@
 
-    <!-- CSS de Bootstrap -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
 <div class="container">
     <h1>À propos de nous</h1>
