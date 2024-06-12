@@ -51,30 +51,30 @@ $(document).ready(function () {
 
 
     $('#texte_bouton_submit').click(function (e) {
-    e.preventDefault();
-    let marque = $('#marque').val();
-    let modele = $('#modele').val();
-    let annee = $('#annee').val();
-    let couleur = $('#couleur').val();
-    let prix = $('#prix').val();
-    let kilometrage = $('#kilometrage').val();
-    let carburant = $('#carburant').val();
-    let type_boite = $('#type_boite').val();
-    let image = $('#image').val(); // Ensure this line is present and the '#image' selector is correct
-    let param = 'marque=' + marque + '&modele=' + modele + '&annee=' + annee + '&couleur=' + couleur + '&prix=' + prix + '&kilometrage=' + kilometrage + '&carburant=' + carburant + '&type_boite=' + type_boite + '&image=' + image;
-    $.ajax({
-        url: './src/php/ajax/ajaxAjoutVoiture.php',
-        type: 'GET',
-        dataType: 'json',
-        data: param,
-        success: function (data) {
-            alert("Voiture ajoutée avec succès.");
-        },
-        error: function (data) {
-            console.log(data);
-        }
+        e.preventDefault();
+        let marque = $('#marque').val();
+        let modele = $('#modele').val();
+        let annee = $('#annee').val();
+        let couleur = $('#couleur').val();
+        let prix = $('#prix').val();
+        let kilometrage = $('#kilometrage').val();
+        let carburant = $('#carburant').val();
+        let type_boite = $('#type_boite').val();
+        let image = $('#image').val(); // Ensure this line is present and the '#image' selector is correct
+        let param = 'marque=' + marque + '&modele=' + modele + '&annee=' + annee + '&couleur=' + couleur + '&prix=' + prix + '&kilometrage=' + kilometrage + '&carburant=' + carburant + '&type_boite=' + type_boite + '&image=' + image;
+        $.ajax({
+            url: './src/php/ajax/ajaxAjoutVoiture.php',
+            type: 'GET',
+            dataType: 'json',
+            data: param,
+            success: function (data) {
+                alert("Voiture ajoutée avec succès.");
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
     });
-});
 
     $('#texte_bouton_delete').click(function (e) {
         e.preventDefault();
@@ -104,7 +104,7 @@ $(document).ready(function () {
         });
     });
 
-        $(document).ready(function() {
+    $(document).ready(function() {
         $('#texte_bouton_submit_com').click(function(e) {
             e.preventDefault();
 

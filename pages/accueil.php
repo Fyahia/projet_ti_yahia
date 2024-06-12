@@ -44,7 +44,7 @@ $couleurs = $voiture->getDistinctCouleurs();
 $carburants = $voiture->getDistinctCarburants();
 $types_boite = $voiture->getDistinctTypesBoite();
 ?>
-<div class="container-fluid">
+<div class="container-fluid mt-5">
     <div class="row">
         <div class="col-md-3">
             <h3>Filtres</h3>

@@ -1,13 +1,4 @@
-<<?php
-// Inclure le fichier de connexion à la base de données
-require './admin/src/php/db/dbPgConnect.php';
 
-
-// Récupérez toutes les marques de la base de données
-$stmt = $cnx->prepare("SELECT marque FROM voiture");
-$stmt->execute();
-$marques = $stmt->fetchAll(PDO::FETCH_ASSOC);
-?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <!-- Ajout d'un nom de page -->
